@@ -45,6 +45,10 @@ dependencies {
 
     implementation(libs.gson.serializer)
 
+
+    implementation(libs.glide)
+    implementation(libs.gson.serializer)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
