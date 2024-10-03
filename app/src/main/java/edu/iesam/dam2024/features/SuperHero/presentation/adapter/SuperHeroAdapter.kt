@@ -3,10 +3,12 @@ package edu.iesam.dam2024.features.SuperHero.presentation.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ListAdapter
 import edu.iesam.dam2024.R
 import edu.iesam.dam2024.features.SuperHero.domain.SuperHero
 
-class SuperHeroAdapter (private val superHeroList: List<SuperHero>) : RecyclerView.Adapter<SuperHeroViewHolder>(){
+class SuperHeroAdapter :ListAdapter<SuperHero,SuperHeroViewHolder>(){
+
     lateinit var onClick:(superHeroID:String) ->Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperHeroViewHolder {
@@ -15,7 +17,6 @@ class SuperHeroAdapter (private val superHeroList: List<SuperHero>) : RecyclerVi
         return SuperHeroViewHolder(layoutInflater)
     }
 
-    override fun getItemCount(): Int =  superHeroList.size
 
 
     override fun onBindViewHolder(holder: SuperHeroViewHolder, position: Int) {
