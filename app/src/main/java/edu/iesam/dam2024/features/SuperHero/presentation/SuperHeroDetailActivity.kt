@@ -30,7 +30,7 @@ class SuperHeroDetailActivity : AppCompatActivity() {
     }
 
     private fun bindData(superHero: SuperHero) {
-        val imageView = findViewById<ImageView>(R.id.imagen)
+        val imageView = findViewById<ImageView>(R.id.super_id)
         Glide
             .with(this)
             .load(superHero.image)
