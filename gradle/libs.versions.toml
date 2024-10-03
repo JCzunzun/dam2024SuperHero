@@ -11,7 +11,7 @@ activity = "1.8.0"
 constraintlayout = "2.1.4"
 gson = "2.11.0"
 glide = "4.16.0"
-gson = "2.11.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,8 +25,6 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 gson-serializer = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 
-
-gson-serializer = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

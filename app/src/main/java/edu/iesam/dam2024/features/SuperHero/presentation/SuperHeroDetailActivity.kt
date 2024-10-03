@@ -19,7 +19,9 @@ class SuperHeroDetailActivity : AppCompatActivity() {
         superHeroFactory = SuperHeroFactory(this)
         viewModel = superHeroFactory.buildSuperHeroDetailViewMovie()
         getSuperHeroId()?.let { superHeroId ->
-            viewModel.viewCreated(superHeroId)
+            viewModel.viewCreated(superHeroId)?.let { superHero ->
+                bindData(superHero)
+            }
         }
     }
 

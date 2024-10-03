@@ -8,19 +8,19 @@ class SuperHeroMockRemoteDataSource {
             id = "1",
             name = "A-Bomb",
             slug = "1-a-bomb",
-            image = "",
+            image = "https://images6.fanpop.com/image/photos/38200000/Superman-Artwork-superman-38273746-1500-1463.jpg",
         ),
         SuperHero(
             id = "2",
             name = "Abe Sapien",
             slug = "2-abe-sapien",
-            image = "",
+            image = "https://images6.fanpop.com/image/photos/38200000/Superman-Artwork-superman-38273746-1500-1463.jpg",
         ),
         SuperHero(
             id = "3",
             name = "Abin Sur",
             slug = "3-abin-sur",
-            image = "",
+            image = "https://images6.fanpop.com/image/photos/38200000/Superman-Artwork-superman-38273746-1500-1463.jpg",
         )
     )
 
