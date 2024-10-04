@@ -21,7 +21,7 @@ class SuperHeroActivity : AppCompatActivity() {
         superHeroFactory = SuperHeroFactory(this)
         viewModel = superHeroFactory.buildViewModel()
         val superHero = viewModel.viewCreated()
-        bindDate(superHero)
+        //bindDate(superHero)
         Log.d("@dev", superHero.toString())
         //testXml()
         /*val superHerosFromXml= xmlLocalDataSource.findAll()
@@ -39,7 +39,7 @@ class SuperHeroActivity : AppCompatActivity() {
          val superHeros = viewModel.viewCreated()
          val xmlLocalDataSource = SuperHeroXmlLocalDataSource(this)
          xmlLocalDataSource.saveAll(superHeros)
-     }*/
+     }
     private fun bindDate(superHeros: List<SuperHero>) {
         findViewById<TextView>(R.id.superhero_id_1).text = superHeros[0].id
         findViewById<TextView>(R.id.superhero_name_1).text = superHeros[0].name
@@ -59,7 +59,7 @@ class SuperHeroActivity : AppCompatActivity() {
             navigateToSuperHeroDetail(superHeros[2].id)
         }
 
-    }
+    }*/
 
     private fun navigateToSuperHeroDetail(superHeroId: String) {
         startActivity(SuperHeroDetailActivity.getIntent(this, superHeroId))
