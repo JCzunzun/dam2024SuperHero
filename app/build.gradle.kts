@@ -46,6 +46,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
     implementation(libs.coil)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
     implementation(libs.gson.serializer)
 

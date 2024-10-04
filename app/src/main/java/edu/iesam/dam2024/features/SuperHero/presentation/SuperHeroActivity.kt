@@ -2,16 +2,17 @@ package edu.iesam.dam2024.features.SuperHero.presentation
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import edu.iesam.dam2024.R
 import edu.iesam.dam2024.features.SuperHero.data.local.SuperHeroXmlLocalDataSource
 import edu.iesam.dam2024.features.SuperHero.domain.SuperHero
+import edu.iesam.dam2024.features.SuperHero.presentation.adapter.SuperHeroAdapter
 
 class SuperHeroActivity : AppCompatActivity() {
     private lateinit var xmlLocalDataSource: SuperHeroXmlLocalDataSource
-
+    private val SuperHeroAdapter = SuperHeroAdapter()
     private lateinit var superHeroFactory: SuperHeroFactory
     private lateinit var viewModel: SuperHeroViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +28,17 @@ class SuperHeroActivity : AppCompatActivity() {
         /*val superHerosFromXml= xmlLocalDataSource.findAll()
         Log.d("@dev",superHerosFromXml.toString())*/
     }
+    fun initRecyclerView(){
+        val recyclerView = findViewById<RecyclerView>(R.id.fragmenthero)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = this@SuperHeroActivity.SuperHeroAdapter
+    }
+    private fun setUpObservers(){
+        viewModel.uiState.observe(this){
+            SuperHeroAdapter.submitList(it.superHeroes)
+        }
 
+    }
     /* private fun testXml(){
          val superHero = viewModel.itemSelected("1")
          superHero?.let {

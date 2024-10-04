@@ -1,19 +1,31 @@
 package edu.iesam.dam2024.features.SuperHero.presentation
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import edu.iesam.dam2024.features.SuperHero.domain.GetSuperHeroUseCase
 import edu.iesam.dam2024.features.SuperHero.domain.GetSuperHerosUseCase
 import edu.iesam.dam2024.features.SuperHero.domain.SuperHero
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class SuperHeroViewModel(
     private val getSuperHerosUseCase: GetSuperHerosUseCase,
-    private val getSuperHeroUseCase: GetSuperHeroUseCase
 ) : ViewModel() {
-    fun viewCreated(): List<SuperHero> {
-        return getSuperHerosUseCase.invoke()
+    private val _uiState = MutableLiveData<UiState>()
+    val uiState: LiveData<UiState> = _uiState
+    fun viewCreated(){
+        viewModelScope.launch (Dispatchers.IO){
+            getSuperHerosUseCase.invoke()
+
+        }
+
     }
 
-    fun itemSelected(superHeroId: String): SuperHero? {
-        return getSuperHeroUseCase.invoke(superHeroId)
-    }
+    data class UiState(
+        val superHeroes: List<SuperHero> = emptyList()
+    )
+
 }
